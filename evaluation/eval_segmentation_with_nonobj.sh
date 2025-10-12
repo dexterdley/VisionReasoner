@@ -3,7 +3,7 @@ set -e
 
 MODEL_TYPE="visurf"  # Model type: qwen2vl or vision_reasoner or qwen25vl or visurf
 TEST_DATA_PATH=${1:-"Ricky06662/grefcoco_val_all"}
-MODEL_PATH=${2:-"Ricky06662/VisionReasoner-7B"}
+MODEL_PATH=${2:-"Ricky06662/Visurf-7B-Best-on-gRefCOCO"} # or Ricky06662/Visurf-7B-NoThink-Best-on-gRefCOCO
 
 # Extract model name and test dataset name for output directory
 TEST_NAME=$(echo $TEST_DATA_PATH | sed -E 's/.*\/([^\/]+)$/\1/')

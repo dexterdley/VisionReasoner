@@ -124,7 +124,7 @@ def process_batch(model, batch_images, batch_questions, id_list, all_outputs, ha
             mask_all = result["masks"]
             gt_mask = np.array(id_list[i]["mask"])
             
-            visualize_result(batch_images[i], mask_all, gt_mask, thinking, batch_questions[i])
+            # visualize_result(batch_images[i], mask_all, gt_mask, thinking, batch_questions[i])
             
             bbox_iou = 0.0
             if has_bbox:

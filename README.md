@@ -263,6 +263,15 @@ bash evaluation/eval_count.sh Ricky06662/counting_countbench
 > [!NOTE]
 > If you want to evaluate in expression level on RefCOCO(g/+) as detailed in [Issue12](https://github.com/dvlab-research/VisionReasoner/issues/12), you can try add '**_all**' to eval data, such as '**Ricky06662/refcoco_val_all**'.
 
+### Evaluation on ViSurf
+
+```bash
+bash evaluation/eval_segmentation_with_nonobj.sh
+```
+> [!NOTE]
+> Different from VisionReasoner, the results on ViSurf are using different ckpts. And we provide two ckpts for gRefCOCO, details can be seen in `eval_segmentation_with_nonobj.sh` .
+
+
 ## Training
 
 We recommend you to [Seg-Zero](https://github.com/dvlab-research/Seg-Zero) for training the VisionReasoner.  

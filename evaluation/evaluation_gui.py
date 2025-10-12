@@ -118,10 +118,14 @@ def process_batch(model, batch_images, batch_questions, id_list, all_outputs):
     for i, result in enumerate(batch_results):
         try:
             thinking = result["thinking"]
-            points = result["points"]
             bboxes = result["bboxes"]
+            # print(result)
+            if "points" not in result or len(result["points"]) == 0:
+                points = [[int((bbox[0] + bbox[2]) / 2), int((bbox[1] + bbox[3]) / 2)] for bbox in bboxes]
+            else:
+                points = result["points"]
             
-            visualize_result_with_bboxes_and_points(batch_images[i], bboxes, points, id_list[i]["bbox"], thinking, batch_questions[i])
+            # visualize_result_with_bboxes_and_points(batch_images[i], bboxes, points, id_list[i]["bbox"], thinking, batch_questions[i])
 
             accurate = 0.0 
             b_x1, b_y1, b_x2, b_y2 = id_list[i]["bbox"]
