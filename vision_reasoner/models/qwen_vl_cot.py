@@ -14,15 +14,39 @@ from .base_model import (
     QAModel
 )
 
-class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingModel, QAModel):
+def strip_json_comments(text):
+    cleaned_lines = []
+    for line in text.splitlines():
+        new_line, in_string, escape = [], False, False
+        for ch in line:
+            if escape:
+                new_line.append(ch)
+                escape = False
+                continue
+            if ch == '\\':
+                new_line.append(ch)
+                escape = True
+                continue
+            if ch in ('"', "'"):
+                new_line.append(ch)
+                in_string = not in_string
+                continue
+            if ch == '/' and not in_string and ''.join(new_line[-1:]) == '/':
+                new_line.pop()
+                break
+            new_line.append(ch)
+        cleaned_lines.append(''.join(new_line).rstrip())
+    return '\n'.join(cleaned_lines)
+
+class QwenVLCoTModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingModel, QAModel):
     """
-    QwenVL model implementing all task interfaces with custom prompts
+    QwenVLCoT model implementing all task interfaces with custom prompts
     """
     
     def __init__(self, model_path='Qwen/Qwen2.5-VL-7B-Instruct', 
                  segmentation_model_path="facebook/sam2-hiera-large"):
         """
-        Initialize the QwenVL model
+        Initialize the QwenVLCoT model
         
         Args:
             model_path (str): Path to the model
@@ -54,9 +78,14 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
 
         # Task-specific prompts
         if 'Qwen2.5' in model_path:
+            # for CoT prompt
             self.DETECTION_PROMPT = """
-            Locate "{query}", report the bboxes coordinates in JSON format.
+            Locate "{query}", report the bboxes coordinates in JSON format. Let's think step by step.
             """
+            # Locate "{query}", output the thinking process at first and then report the bboxes coordinates in JSON format.
+
+            # Locate "{query}", report the bboxes coordinates in JSON format. Let's think step by step.
+
         else:
             self.DETECTION_PROMPT = """
             Please identify "{query}" in the image. 
@@ -74,8 +103,8 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         self.COUNTING_PROMPT = """
         Locate "{query}", report the bboxes coordinates in JSON format.
         """
-
-        #  use 'How many "{query}" are there in the image?' for PixMo
+        # Locate "{query}", report the bboxes coordinates in JSON format.
+        # Locate "{query}", Output a thinking process between <think> and </think> at first and  report the bboxes coordinates in JSON format.
 
         self.QA_PROMPT = """{query}"""
     
@@ -89,11 +118,15 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         Returns:
             dict or list: Parsed JSON content
         """
+        response_text = response_text.replace("<json>{", "```json").replace("} </json>", "```").replace("}</json>", "```")
+        
         json_pattern = r"```json\s*(.*?)\s*```"
         match = re.search(json_pattern, response_text, re.DOTALL)
         
         if match:
             json_str = match.group(1).strip()
+            if '//' in json_str:
+                json_str = strip_json_comments(json_str)
             try:
                 return json.loads(json_str)
             except json.JSONDecodeError:
@@ -255,70 +288,84 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         Returns:
             dict: Results with bounding boxes and scores
         """
-        prompt = self.DETECTION_PROMPT.format(query=query)
-        response, scale_factors = self.generate_response(image, prompt)
-        
-        # Get original image dimensions
-        img_height, img_width = image.size[1], image.size[0]
-        
-        json_data = self.extract_json_from_response(response)
-        
-        bboxes = []
-        points = []
-        scores = []
-        
-        if json_data and isinstance(json_data, list):
-            for item in json_data:
-                for key in ['bbox', 'bbox_2d']:
-                    if key in item:
-                        # For Qwen2-VL, convert from normalized coordinates (0-1000) to actual image coordinates
-                        if 'Qwen2.5' not in self.model_path:
-                            bbox = [
-                                int(item[key][0] * img_width / 1000),
-                                int(item[key][1] * img_height / 1000),
-                                int(item[key][2] * img_width / 1000),
-                                int(item[key][3] * img_height / 1000)
-                            ]
-                        else:
-                            # Original scaling for Qwen2.5-VL
-                            bbox = [
-                                int(item[key][0]),
-                                int(item[key][1]),
-                                int(item[key][2]),
-                                int(item[key][3])
-                            ]
-                        bboxes.append(bbox)
-                
-                for key in ['point', 'point_2d']:
-                    if key in item:
-                        # Similarly handle points
-                        if 'Qwen2.5' not in self.model_path:
-                            point = [
-                                int(item[key][0] * img_width / 1000),
-                                int(item[key][1] * img_height / 1000)
-                            ]
-                        else:
-                            point = [
-                                int(item[key][0]),
-                                int(item[key][1])
-                            ]
-                        points.append(point)
-                
-                for key in ['score', 'score_2d']:
-                    if key in item:
-                        scores.append(item[key])
+        try:
+            prompt = self.DETECTION_PROMPT.format(query=query)
+            response, scale_factors = self.generate_response(image, prompt)
+            
+            print("response: ", response)
+            
+            # Get original image dimensions
+            img_height, img_width = image.size[1], image.size[0]
+            
+            json_data = self.extract_json_from_response(response)
+            
+            bboxes = []
+            points = []
+            scores = []
+            
+            if json_data and isinstance(json_data, list):
+                for item in json_data:
+                    for key in ['bbox', 'bbox_2d']:
+                        if key in item:
+                            # For Qwen2-VL, convert from normalized coordinates (0-1000) to actual image coordinates
+                            if 'Qwen2.5' not in self.model_path:
+                                bbox = [
+                                    int(item[key][0] * img_width / 1000),
+                                    int(item[key][1] * img_height / 1000),
+                                    int(item[key][2] * img_width / 1000),
+                                    int(item[key][3] * img_height / 1000)
+                                ]
+                            else:
+                                # Original scaling for Qwen2.5-VL
+                                bbox = [
+                                    int(item[key][0]),
+                                    int(item[key][1]),
+                                    int(item[key][2]),
+                                    int(item[key][3])
+                                ]
+                            bboxes.append(bbox)
+                    
+                    for key in ['point', 'point_2d']:
+                        if key in item:
+                            # Similarly handle points
+                            if 'Qwen2.5' not in self.model_path:
+                                point = [
+                                    int(item[key][0] * img_width / 1000),
+                                    int(item[key][1] * img_height / 1000)
+                                ]
+                            else:
+                                point = [
+                                    int(item[key][0]),
+                                    int(item[key][1])
+                                ]
+                            points.append(point)
+                    
+                    for key in ['score', 'score_2d']:
+                        if key in item:
+                            scores.append(item[key])
 
-                if len(scores) == 0:
-                    scores.append(0.0)
-        
-        return {
-            "bboxes": bboxes,
-            "points": points,
-            "scores": scores,
-            "thinking": "",
-            "full_response": response,
-            "json_data": json_data
-        }
+                    if len(scores) == 0:
+                        scores.append(0.0)
+            
+            return {
+                "bboxes": bboxes,
+                "points": points,
+                "scores": scores,
+                "thinking": response,
+                "full_response": response,
+                "json_data": json_data
+            }
+        except Exception as e:
+            # raise
+            print(f"Error in detection: {e}, Response: {response}")
+            return {
+                "bboxes": [],
+                "points": [],
+                "scores": [],
+                "thinking": "",
+                "full_response": "",
+                "json_data": None
+            }
     
     def detect_objects_batch(self, images, queries):
         """
@@ -397,6 +444,8 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
             
             json_data = self.extract_json_from_response(response)
             
+            print("response: ", response)
+            
             bboxes = []
             points = []
             
@@ -426,13 +475,13 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
                 "masks": masks,
                 "bboxes": bboxes,
                 "points": points,
-                "thinking": "",
+                "thinking": response,
                 "full_response": response,
                 "json_data": json_data
             }
         except Exception as e:
-            raise
-            print(f"Error in segmentation: {e}")
+            # raise
+            print(f"Error in segmentation: {e}, Response: {response}")
             return {
                 "masks": np.zeros((image.height, image.width), dtype=bool),
                 "bboxes": [],
@@ -473,6 +522,7 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         try:
             prompt = self.COUNTING_PROMPT.format(query=query)
             response, scale_factors = self.generate_response(image, prompt)
+            print("response: ", response)
             
             # Get original image dimensions
             img_height, img_width = image.size[1], image.size[0]
@@ -507,7 +557,7 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
                 return {
                     "count": len(bboxes),
                     "bboxes": bboxes,
-                    "thinking": "",
+                    "thinking": response,
                     "points": points,
                     "full_response": response,
                     "json_data": json_data
@@ -537,6 +587,8 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
             ]
             import re
             response_lower = response.lower()
+            
+            response_lower = response_lower.split("</think>")[1]
             
             for pattern in count_patterns:
                 match = re.search(pattern, response_lower)

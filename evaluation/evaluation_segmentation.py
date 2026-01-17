@@ -13,6 +13,7 @@ from visualization import visualize_result
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
 from vision_reasoner.models.qwen_vl import QwenVLModel
+from vision_reasoner.models.qwen_vl_cot import QwenVLCoTModel
 from vision_reasoner.models.visurf_model import ViSurfModel
 
 def parse_args():
@@ -68,6 +69,8 @@ def main():
         model = QwenVLModel(model_path=args.model_path)
     elif args.model == "qwen25vl":
         model = QwenVLModel(model_path=args.model_path)
+    elif args.model == "qwen25vl_cot":
+        model = QwenVLCoTModel(model_path=args.model_path)
     elif args.model == "vision_reasoner":
         model = VisionReasonerModel(reasoning_model_path=args.model_path, 
                                     task_router_model_path=args.task_router_model_path, 

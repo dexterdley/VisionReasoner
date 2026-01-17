@@ -11,10 +11,11 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
 from vision_reasoner.models.qwen_vl import QwenVLModel
+from vision_reasoner.models.qwen_vl_cot import QwenVLCoTModel
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="vision_reasoner")
-    parser.add_argument("--model_path", type=str, default="pretrained_models/VisionReasoner-7B", choices=["Ricky06662/VisionReasoner-7B", "Qwen/Qwen2.5-VL-7B-Instruct", "Qwen/Qwen2-VL-7B-Instruct"])
+    parser.add_argument("--model_path", type=str, default="pretrained_models/VisionReasoner-7B")
     parser.add_argument("--task_router_model_path", type=str, default="pretrained_models/TaskRouter-1.5B")
     parser.add_argument("--segmentation_model_path", type=str, default="facebook/sam2-hiera-large")
     parser.add_argument("--output_path", type=str, required=True)
@@ -34,6 +35,8 @@ def main():
         model = QwenVLModel(model_path=args.model_path)
     elif args.model == "qwen25vl":
         model = QwenVLModel(model_path=args.model_path)
+    elif args.model == "qwen25vl_cot":
+        model = QwenVLCoTModel(model_path=args.model_path)
     elif args.model == "vision_reasoner":
         model = VisionReasonerModel(reasoning_model_path=args.model_path, 
                                     task_router_model_path=args.task_router_model_path, 
