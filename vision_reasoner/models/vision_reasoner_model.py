@@ -90,6 +90,12 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
             "i.e., <think> thinking process here </think>" \
             "<answer>{Answer}</answer>"
         
+            #### It seems Below prompt can get higher performance
+            # "Please find \"{Question}\" with bboxs and points." \
+            # "Output the thinking process in <think> </think> and final answer in <answer> </answer> tags." \
+            # "i.e., <think> thinking process here </think>" \
+            # "<answer>{Answer}</answer>"
+        
         # Template for QA tasks
         self.QA_TEMPLATE = "{Question}"
 
