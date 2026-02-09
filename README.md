@@ -287,11 +287,11 @@ We recommend you to [Seg-Zero](https://github.com/JIA-Lab-research/Seg-Zero) for
   year         = {2025}
 }
 
-@article{liu2025visionreasoner,
-  title        = {VisionReasoner: Unified Visual Perception and Reasoning via Reinforcement Learning},
-  author       = {Liu, Yuqi and Qu, Tianyuan and Zhong, Zhisheng and Peng, Bohao and Liu, Shu and Yu, Bei and Jia, Jiaya},
-  journal      = {arXiv preprint arXiv:2505.12081},
-  year         = {2025}
+@inproceedings{liu2026visionreasoner,
+  title={VisionReasoner: Unified Reasoning-Integrated Visual Perception via Reinforcement Learning},
+  author={Liu, Yuqi and Qu, Tianyuan and Zhong, Zhisheng and Peng, Bohao and Liu, Shu and Yu, Bei and Jia, Jiaya},
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026}
 }
 ```
 
