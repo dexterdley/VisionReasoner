@@ -1,9 +1,17 @@
 #!/bin/bash
 set -e
-
+# CMD: bash evaluation/eval_segmentation.sh ./ReasonSeg_val/
 MODEL_TYPE="vision_reasoner"  # Model type: qwen2vl or vision_reasoner or qwen25vl
-TEST_DATA_PATH=${1:-"Ricky06662/refcocog_test"}
-MODEL_PATH=${2:-"Ricky06662/VisionReasoner-7B"}
+TEST_DATA_PATH=${1:-"./ReasonSeg_val/"}
+MODEL_PATH=${2:-"./pretrained_models/VisionReasoner-7B"}
+
+# VORD options
+USE_VORD=${USE_VORD:-""}              # Set to "--use_vord" for mask filtering
+VORD_NOISE_STEP=${VORD_NOISE_STEP:-50}
+VORD_THRESHOLD=${VORD_THRESHOLD:-0.5}
+
+# VGD options (token-level visual guidance decoding)
+VGD_ALPHA=${VGD_ALPHA:-0.0}           # Set to e.g. 1.0 to enable VGD
 
 # Extract model name and test dataset name for output directory
 TEST_NAME=$(echo $TEST_DATA_PATH | sed -E 's/.*\/([^\/]+)$/\1/')
@@ -30,7 +38,11 @@ for i in $(seq 0 $((NUM_PARTS-1))); do
             --test_data_path $TEST_DATA_PATH \
             --idx $process_idx \
             --num_parts $NUM_PARTS \
-            --batch_size 16 || { echo "1" > /tmp/process_status.$$; kill -TERM -$$; }
+            --batch_size 16 \
+            $USE_VORD \
+            --vord_noise_step $VORD_NOISE_STEP \
+            --vord_threshold $VORD_THRESHOLD \
+            --vgd_alpha $VGD_ALPHA || { echo "1" > /tmp/process_status.$$; kill -TERM -$$; }
     ) &
 done
 

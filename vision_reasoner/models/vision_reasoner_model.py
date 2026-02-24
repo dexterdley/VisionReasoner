@@ -46,7 +46,8 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
                  yolo_model_path=None,
                  generation_model_path=None,
                  depth_estimation_model_path=None,
-                 pose_estimation_model_path=None):
+                 pose_estimation_model_path=None,
+                 vgd_alpha=0.0):
         """
         Initialize the VisionReasoner model with reasoning and segmentation components
         
@@ -108,6 +109,12 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
         # Initialize generation model
         if generation_model_path:
             self.generation_model = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", generation_model_path))
+
+        # VGD token-level visual guidance decoding
+        self.vgd_alpha = vgd_alpha
+        if self.vgd_alpha > 0:
+            from evaluation.vcd_sample import evolve_guidance_sampling
+            evolve_guidance_sampling(visual_alpha=self.vgd_alpha)
 
     
     def extract_bbox_points_think(self, output_text, x_factor, y_factor):
@@ -286,7 +293,13 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
         inputs = inputs.to("cuda")
         
         # Generate output
-        generated_ids = self.reasoning_model.generate(**inputs, use_cache=True, max_new_tokens=2048, do_sample=False)
+        if self.vgd_alpha > 0 and not batch_mode:
+            generated_ids = self.reasoning_model.generate(
+                **inputs, use_cache=True, max_new_tokens=2048, 
+                do_sample=False, visual_alpha=self.vgd_alpha
+            )
+        else:
+            generated_ids = self.reasoning_model.generate(**inputs, use_cache=True, max_new_tokens=2048, do_sample=False)
         
         generated_ids_trimmed = [
             out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)

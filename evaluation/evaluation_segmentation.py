@@ -8,6 +8,8 @@ from PIL import Image as PILImage
 from tqdm import tqdm
 import sys
 from visualization import visualize_result
+from vord_segmentation import run_vord_segmentation
+from vcd_sample import evolve_guidance_sampling
 
 # Add the parent directory to the Python path to import model module
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -29,6 +31,14 @@ def parse_args():
     # for parallel evaluation
     parser.add_argument("--idx", type=int, required=True)
     parser.add_argument("--num_parts", type=int, required=True)
+
+    # VORD options
+    parser.add_argument("--use_vord", action="store_true", help="Enable VORD mask filtering")
+    parser.add_argument("--vord_noise_step", type=int, default=50, help="VORD diffusion noise timestep (0-999)")
+    parser.add_argument("--vord_threshold", type=float, default=0.5, help="VORD mask binarization threshold")
+
+    # VGD options (token-level visual guidance decoding)
+    parser.add_argument("--vgd_alpha", type=float, default=0.0, help="VGD visual guidance alpha (0=disabled)")
     return parser.parse_args()
 
 def compute_iou(mask1, mask2):
@@ -64,6 +74,9 @@ def compute_bbox_iou(bbox1, bbox2):
 def main():
     args = parse_args()
     
+    # Install appropriate sampling strategy (alpha=0 → regular _sample, alpha>0 → VGD)
+    evolve_guidance_sampling(visual_alpha=args.vgd_alpha)
+    
     # Initialize model
     if args.model == "qwen2vl":
         model = QwenVLModel(model_path=args.model_path)
@@ -74,7 +87,8 @@ def main():
     elif args.model == "vision_reasoner":
         model = VisionReasonerModel(reasoning_model_path=args.model_path, 
                                     task_router_model_path=args.task_router_model_path, 
-                                    segmentation_model_path=args.segmentation_model_path)
+                                    segmentation_model_path=args.segmentation_model_path,
+                                    vgd_alpha=args.vgd_alpha)
     elif args.model == "visurf":
         model = ViSurfModel(reasoning_model_path=args.model_path, 
                                     task_router_model_path=args.task_router_model_path, 
@@ -109,7 +123,9 @@ def main():
             "bbox": item["bbox"] if has_bbox else None
         } for item in batch_data]
         
-        process_batch(model, batch_images, batch_questions, id_list, all_outputs, has_bbox)
+        process_batch(model, batch_images, batch_questions, id_list, all_outputs, has_bbox,
+                      use_vord=args.use_vord, vord_noise_step=args.vord_noise_step, 
+                      vord_threshold=args.vord_threshold)
     
     # Save results
     output_file = os.path.join(args.output_path, f"output_{args.idx}.json")
@@ -154,9 +170,20 @@ def get_bbox(mask):
     
     return [int(x_min), int(y_min), int(x_max), int(y_max)]
 
-def process_batch(model, batch_images, batch_questions, id_list, all_outputs, has_bbox):
+def process_batch(model, batch_images, batch_questions, id_list, all_outputs, has_bbox,
+                  use_vord=False, vord_noise_step=50, vord_threshold=0.5):
     """Process a batch of images and questions"""
-    batch_results = model.segment_objects_batch(batch_images, batch_questions)
+    if use_vord:
+        # VORD: process one image at a time with perturbation-based mask filtering
+        batch_results = []
+        for image, question in zip(batch_images, batch_questions):
+            result = run_vord_segmentation(
+                model, image, question,
+                noise_step=vord_noise_step, threshold=vord_threshold
+            )
+            batch_results.append(result)
+    else:
+        batch_results = model.segment_objects_batch(batch_images, batch_questions)
     
     for i, result in enumerate(batch_results):
         try:
