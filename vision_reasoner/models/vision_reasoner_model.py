@@ -296,10 +296,10 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
         if self.vgd_alpha > 0 and not batch_mode:
             generated_ids = self.reasoning_model.generate(
                 **inputs, use_cache=True, max_new_tokens=2048, 
-                do_sample=False, visual_alpha=self.vgd_alpha
+                do_sample=True, visual_alpha=self.vgd_alpha
             )
         else:
-            generated_ids = self.reasoning_model.generate(**inputs, use_cache=True, max_new_tokens=2048, do_sample=False)
+            generated_ids = self.reasoning_model.generate(**inputs, use_cache=True, max_new_tokens=2048, do_sample=True)
         
         generated_ids_trimmed = [
             out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
