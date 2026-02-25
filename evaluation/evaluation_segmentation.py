@@ -94,9 +94,17 @@ def main():
     
     # Initialize model
     if args.model == "qwen2vl":
-        model = QwenVLModel(model_path=args.model_path)
+        model = QwenVLModel(model_path=args.model_path,
+                            visual_alpha=args.visual_alpha, 
+                            mode=args.mode,
+                            noise_step=args.noise_step
+                            )
     elif args.model == "qwen25vl":
-        model = QwenVLModel(model_path=args.model_path)
+        model = QwenVLModel(model_path="Qwen/Qwen2.5-VL-7B-Instruct",
+                            visual_alpha=args.visual_alpha, 
+                            mode=args.mode,
+                            noise_step=args.noise_step
+                            )
     elif args.model == "qwen25vl_cot":
         model = QwenVLCoTModel(model_path=args.model_path)
     elif args.model == "vision_reasoner":

@@ -20,7 +20,11 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
     """
     
     def __init__(self, model_path='Qwen/Qwen2.5-VL-7B-Instruct', 
-                 segmentation_model_path="facebook/sam2-hiera-large"):
+                 segmentation_model_path="facebook/sam2-hiera-large",
+                 visual_alpha=0.0,
+                 mode=None,
+                 noise_step=500
+                 ):
         """
         Initialize the QwenVL model
         
@@ -51,6 +55,16 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         
         # Initialize segmentation model
         self.segmentation_model = SAM2ImagePredictor.from_pretrained(segmentation_model_path)
+
+        # VGD token-level visual guidance decoding
+        self.visual_alpha = visual_alpha
+        self.mode = mode
+        self.noise_step = noise_step
+        # Store noise_step directly on the model so _sample_vord can read it via self
+        self.model.noise_step = noise_step
+        if self.visual_alpha > 0:
+            from evaluation.vcd_sample import evolve_guidance_sampling
+            evolve_guidance_sampling(visual_alpha=self.visual_alpha, mode=self.mode)
 
         # Task-specific prompts
         if 'Qwen2.5' in model_path:
@@ -162,12 +176,24 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         
         
         # Generate response
-        with torch.inference_mode():
-            output_ids = self.model.generate(
-                **inputs,
-                max_new_tokens=1024,
-                do_sample=False
-            )
+        if self.visual_alpha > 0:
+            # Update noise_step on model before each generate call
+            self.model.noise_step = self.noise_step
+            with torch.inference_mode():
+                output_ids = self.model.generate(
+                    **inputs,
+                    max_new_tokens=1024,
+                    do_sample=True, 
+                    visual_alpha=self.visual_alpha, 
+                    mode=self.mode
+                )
+        else:
+            with torch.inference_mode():
+                output_ids = self.model.generate(
+                    **inputs,
+                    max_new_tokens=1024,
+                    do_sample=True
+                )
 
         generated_ids = [output_ids[len(input_ids):] for input_ids, output_ids in zip(inputs.input_ids, output_ids)]
         output_text = self.processor.batch_decode(generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)

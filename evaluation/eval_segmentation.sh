@@ -3,7 +3,7 @@ set -e
 # CMD: VISUAL_ALPHA=1.5 MODE="VORD" bash evaluation/eval_segmentation.sh ./ReasonSeg_val/
 MODEL_TYPE="vision_reasoner"  # Model type: qwen2vl or vision_reasoner or qwen25vl
 TEST_DATA_PATH=${1:-"./ReasonSeg_val/"}
-MODEL_PATH=${2:-"./pretrained_models/VisionReasoner-7B"}
+MODEL_PATH=${2:-"./pretrained_models/VisionReasoner-7B"} # ./pretrained_models/VisionReasoner-7B
 
 # VORD options
 USE_VORD=${USE_VORD:-""}              # Set to "--use_vord" for mask filtering

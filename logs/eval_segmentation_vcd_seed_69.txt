@@ -1,0 +1,81 @@
+[Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.09s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.17s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.47s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.48s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.02it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.33s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.26s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.01it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.03s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.46s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.46s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.01s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.18it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.05it/s]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.27s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.06it/s]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.33s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.17s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.30it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.16it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.08s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.02it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.03it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.13s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.13it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.00s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VCD Sampling  | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Processing batches:  14%|█▍        | 1/7 [00:21<02:06, 21.06s/it]Processing batches:  14%|█▍        | 1/7 [00:42<04:13, 42.17s/it]Processing batches:  14%|█▍        | 1/7 [00:49<04:59, 49.96s/it]Processing batches:  29%|██▊       | 2/7 [00:54<02:20, 28.10s/it]Processing batches:  14%|█▍        | 1/7 [01:09<06:57, 69.62s/it]Processing batches:  14%|█▍        | 1/7 [01:01<06:09, 61.64s/it]Processing batches:  14%|█▍        | 1/7 [01:08<06:52, 68.72s/it]Processing batches:  14%|█▍        | 1/7 [01:18<07:52, 78.70s/it]Processing batches:  43%|████▎     | 3/7 [01:26<01:59, 29.96s/it]Processing batches:  14%|█▍        | 1/7 [01:22<08:15, 82.64s/it]Processing batches:  29%|██▊       | 2/7 [01:45<04:26, 53.25s/it]Processing batches:  29%|██▊       | 2/7 [01:37<03:36, 43.36s/it]Processing batches:  29%|██▊       | 2/7 [01:49<04:45, 57.04s/it]Processing batches:  57%|█████▋    | 4/7 [01:49<01:21, 27.26s/it]Processing batches:  43%|████▎     | 3/7 [01:56<02:09, 32.40s/it]Processing batches:  29%|██▊       | 2/7 [02:03<05:01, 60.39s/it]Processing batches:  29%|██▊       | 2/7 [02:12<05:17, 63.53s/it]Processing batches:  71%|███████▏  | 5/7 [02:18<00:55, 27.99s/it]Processing batches:  57%|█████▋    | 4/7 [02:18<01:24, 28.12s/it]Processing batches:  29%|██▊       | 2/7 [02:27<06:19, 75.84s/it]Processing batches:  43%|████▎     | 3/7 [02:41<03:20, 50.21s/it]Processing batches:  71%|███████▏  | 5/7 [02:44<00:54, 27.29s/it]Processing batches:  86%|████████▌ | 6/7 [02:50<00:29, 29.29s/it]Processing batches:  43%|████▎     | 3/7 [02:59<04:11, 62.97s/it]Processing batches:  43%|████▎     | 3/7 [03:02<04:15, 63.86s/it]Processing batches:  29%|██▊       | 2/7 [03:09<08:15, 99.16s/it]Processing batches: 100%|██████████| 7/7 [03:05<00:00, 24.63s/it]Processing batches: 100%|██████████| 7/7 [03:05<00:00, 26.50s/it]
+Error parsing JSON: can't multiply sequence by non-int of type 'float'
+Processing batches:  43%|████▎     | 3/7 [03:03<03:50, 57.69s/it]Processing batches:  86%|████████▌ | 6/7 [03:17<00:29, 29.29s/it]Processing batches: 100%|██████████| 7/7 [03:25<00:00, 22.37s/it]Processing batches: 100%|██████████| 7/7 [03:25<00:00, 29.34s/it]
+Error parsing JSON: 'point_2d'
+Error parsing JSON: can't multiply sequence by non-int of type 'float'
+Processing batches:  57%|█████▋    | 4/7 [03:43<02:44, 54.98s/it]Processing batches:  57%|█████▋    | 4/7 [03:45<02:48, 56.11s/it]Processing batches:  43%|████▎     | 3/7 [03:37<04:52, 73.05s/it]Processing batches:  57%|█████▋    | 4/7 [03:45<02:34, 51.54s/it]Processing batches:  43%|████▎     | 3/7 [04:09<05:24, 81.17s/it]Processing batches:  57%|█████▋    | 4/7 [03:58<03:02, 60.83s/it]Processing batches:  71%|███████▏  | 5/7 [04:35<01:48, 54.11s/it]Processing batches:  71%|███████▏  | 5/7 [04:27<01:35, 47.91s/it]Processing batches:  71%|███████▏  | 5/7 [04:40<01:51, 55.92s/it]Processing batches:  57%|█████▋    | 4/7 [04:40<03:27, 69.13s/it]Processing batches:  71%|███████▏  | 5/7 [04:46<01:52, 56.33s/it]Processing batches:  86%|████████▌ | 6/7 [04:54<00:41, 41.04s/it]Processing batches: 100%|██████████| 7/7 [05:02<00:00, 30.20s/it]Processing batches: 100%|██████████| 7/7 [05:02<00:00, 43.25s/it]
+Error parsing JSON: Expecting ',' delimiter: line 1 column 142 (char 141)
+Error parsing JSON: 'point_2d'
+Error parsing JSON: Expecting ',' delimiter: line 1 column 98 (char 97)
+Processing batches:  86%|████████▌ | 6/7 [05:26<00:50, 50.74s/it]Processing batches:  57%|█████▋    | 4/7 [05:38<04:13, 84.40s/it]Processing batches:  86%|████████▌ | 6/7 [05:38<00:57, 57.09s/it]Processing batches: 100%|██████████| 7/7 [05:48<00:00, 41.66s/it]Processing batches: 100%|██████████| 7/7 [05:48<00:00, 49.82s/it]
+Error parsing JSON: Expecting value: line 1 column 69 (char 68)
+Error parsing JSON: Expecting value: line 1 column 178 (char 177)
+Processing batches: 100%|██████████| 7/7 [05:37<00:00, 37.67s/it]Processing batches: 100%|██████████| 7/7 [05:37<00:00, 48.22s/it]
+Error parsing JSON: Expecting value: line 1 column 119 (char 118)
+Error parsing JSON: Expecting value: line 1 column 69 (char 68)
+Error parsing JSON: Expecting value: line 1 column 436 (char 435)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 594 (char 593)
+Processing batches:  71%|███████▏  | 5/7 [05:39<02:11, 65.57s/it]Processing batches:  86%|████████▌ | 6/7 [05:53<01:01, 61.55s/it]Processing batches: 100%|██████████| 7/7 [06:04<00:00, 45.03s/it]Processing batches: 100%|██████████| 7/7 [06:04<00:00, 52.04s/it]
+Error parsing JSON: Expecting value: line 1 column 232 (char 231)
+Error parsing JSON: Expecting value: line 1 column 78 (char 77)
+Processing batches:  71%|███████▏  | 5/7 [06:45<02:36, 78.14s/it]Processing batches:  86%|████████▌ | 6/7 [06:38<01:03, 63.25s/it]Processing batches: 100%|██████████| 7/7 [06:54<00:00, 47.87s/it]Processing batches: 100%|██████████| 7/7 [06:54<00:00, 59.21s/it]
+Error parsing JSON: can't multiply sequence by non-int of type 'float'
+Error parsing JSON: Expecting value: line 1 column 307 (char 306)
+Error parsing JSON: Expecting value: line 1 column 14 (char 13)
+Processing batches:  86%|████████▌ | 6/7 [07:39<01:10, 70.01s/it]Processing batches: 100%|██████████| 7/7 [07:47<00:00, 49.48s/it]Processing batches: 100%|██████████| 7/7 [07:47<00:00, 66.72s/it]
+Error parsing JSON: 'point_2d'
+Error parsing JSON: Expecting property name enclosed in double quotes: line 1 column 298 (char 297)
+Error parsing JSON: Expecting value: line 1 column 15 (char 14)
+Error parsing JSON: Expecting value: line 1 column 13 (char 12)
+Error parsing JSON: Expecting value: line 1 column 122 (char 121)
+
+-----------------Think Text Statistics----------------------------------
+Number of think texts: 779
+Average think text length: 70.97 words
+Minimum think text length: 2 words
+Maximum think text length: 174 words
+------------------------------------------------------------------
+
+gIoU (average of per image IoU): 0.5812
+cIoU (total_intersection / total_union): 0.5388
+bbox_AP (average of per image bbox_AP): 0.7304
