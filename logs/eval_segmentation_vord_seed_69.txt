@@ -1,0 +1,59 @@
+[Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 69
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.09s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.78s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.86s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.78s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.86s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.05s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.21s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.30s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.10s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.40s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.43s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.40s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.43s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.41s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.31s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.34s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.34s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.48s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.55s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.71s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.74s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.74s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.72s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.12s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.13s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.35s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.10s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.24s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.18s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.39s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.38s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.40s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/2 [00:00<?, ?it/s]Processing batches:  50%|█████     | 1/2 [00:42<00:42, 42.99s/it]Processing batches:  50%|█████     | 1/2 [00:45<00:45, 45.55s/it]Processing batches:  50%|█████     | 1/2 [00:50<00:50, 50.30s/it]Processing batches:  50%|█████     | 1/2 [00:54<00:54, 54.54s/it]Processing batches:  50%|█████     | 1/2 [00:54<00:54, 54.79s/it]Processing batches:  50%|█████     | 1/2 [00:55<00:55, 55.85s/it]Processing batches:  50%|█████     | 1/2 [00:55<00:55, 55.07s/it]Processing batches: 100%|██████████| 2/2 [01:13<00:00, 34.08s/it]Processing batches: 100%|██████████| 2/2 [01:13<00:00, 36.51s/it]
+Processing batches: 100%|██████████| 2/2 [01:17<00:00, 37.82s/it]Processing batches: 100%|██████████| 2/2 [01:17<00:00, 38.98s/it]
+Processing batches: 100%|██████████| 2/2 [01:21<00:00, 40.19s/it]Processing batches: 100%|██████████| 2/2 [01:21<00:00, 40.61s/it]
+Processing batches: 100%|██████████| 2/2 [01:21<00:00, 38.36s/it]Processing batches: 100%|██████████| 2/2 [01:21<00:00, 40.87s/it]
+Processing batches:  50%|█████     | 1/2 [01:32<01:32, 92.49s/it]Processing batches: 100%|██████████| 2/2 [01:34<00:00, 45.66s/it]Processing batches: 100%|██████████| 2/2 [01:34<00:00, 47.03s/it]
+Processing batches: 100%|██████████| 2/2 [01:36<00:00, 46.94s/it]Processing batches: 100%|██████████| 2/2 [01:36<00:00, 48.28s/it]
+Processing batches: 100%|██████████| 2/2 [01:44<00:00, 51.95s/it]Processing batches: 100%|██████████| 2/2 [01:44<00:00, 52.34s/it]
+Processing batches: 100%|██████████| 2/2 [01:56<00:00, 52.34s/it]Processing batches: 100%|██████████| 2/2 [01:56<00:00, 58.36s/it]
+
+-----------------Think Text Statistics----------------------------------
+Number of think texts: 200
+Average think text length: 70.98 words
+Minimum think text length: 27 words
+Maximum think text length: 187 words
+------------------------------------------------------------------
+
+gIoU (average of per image IoU): 0.6474
+cIoU (total_intersection / total_union): 0.5498
+bbox_AP (average of per image bbox_AP): 0.7850

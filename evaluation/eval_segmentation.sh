@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-# CMD: bash evaluation/eval_segmentation.sh ./ReasonSeg_val/
+# CMD: VISUAL_ALPHA=1.5 MODE="VORD" bash evaluation/eval_segmentation.sh ./ReasonSeg_val/
 MODEL_TYPE="vision_reasoner"  # Model type: qwen2vl or vision_reasoner or qwen25vl
 TEST_DATA_PATH=${1:-"./ReasonSeg_val/"}
 MODEL_PATH=${2:-"./pretrained_models/VisionReasoner-7B"}
@@ -10,12 +10,15 @@ USE_VORD=${USE_VORD:-""}              # Set to "--use_vord" for mask filtering
 VORD_NOISE_STEP=${VORD_NOISE_STEP:-50}
 VORD_THRESHOLD=${VORD_THRESHOLD:-0.5}
 
-# VGD options (token-level visual guidance decoding)
-VGD_ALPHA=${VGD_ALPHA:-0.0}           # Set to e.g. 1.0 to enable VGD
+# Hyperparameter options (token-level visual guidance decoding)
+VISUAL_ALPHA=${VISUAL_ALPHA:-0.0}           # Set to e.g. 1.0 to enable VGD
+MODE=${MODE:-""}            # Str example "VORD" or "Baseline"
+NOISE_STEP=${NOISE_STEP:-500}               # VORD diffusion noise timestep (0-999)
+SEED=${SEED:-42}                            # Random seed for reproducibility
 
 # Extract model name and test dataset name for output directory
 TEST_NAME=$(echo $TEST_DATA_PATH | sed -E 's/.*\/([^\/]+)$/\1/')
-OUTPUT_PATH="./detection_eval_results/${MODEL_TYPE}/${TEST_NAME}"
+OUTPUT_PATH="./detection_eval_results/${MODEL_TYPE}/${TEST_NAME}/seed_${SEED}"
 
 # Customize GPU array here - specify which GPUs to use
 GPU_ARRAY=(0 1 2 3 4 5 6 7)  # Example: using GPUs 0, 1, 2, 3
@@ -42,7 +45,10 @@ for i in $(seq 0 $((NUM_PARTS-1))); do
             $USE_VORD \
             --vord_noise_step $VORD_NOISE_STEP \
             --vord_threshold $VORD_THRESHOLD \
-            --vgd_alpha $VGD_ALPHA || { echo "1" > /tmp/process_status.$$; kill -TERM -$$; }
+            --mode $MODE \
+            --visual_alpha $VISUAL_ALPHA \
+            --noise_step $NOISE_STEP \
+            --seed $SEED || { echo "1" > /tmp/process_status.$$; kill -TERM -$$; }
     ) &
 done
 

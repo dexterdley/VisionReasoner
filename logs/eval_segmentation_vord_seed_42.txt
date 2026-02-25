@@ -1,0 +1,441 @@
+[Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.27s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.19s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.46s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.59s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.29s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.21s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.21s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.15s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.20s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.15s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.26s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.38s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.31s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.51s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.31s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.18s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.14s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.00it/s]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.18it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.21s/it]The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.04s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.41s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.34s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.30s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.15s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.09s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.26s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.18s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.04it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.03s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.15s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.15s/it]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Processing batches:  14%|█▍        | 1/7 [00:34<03:25, 34.19s/it]Processing batches:  14%|█▍        | 1/7 [00:52<05:13, 52.27s/it]Processing batches:  14%|█▍        | 1/7 [00:52<05:17, 52.97s/it]Processing batches:  14%|█▍        | 1/7 [00:50<05:02, 50.38s/it]Processing batches:  29%|██▊       | 2/7 [00:57<02:18, 27.68s/it]Processing batches:  14%|█▍        | 1/7 [01:01<06:11, 61.87s/it]Processing batches:  14%|█▍        | 1/7 [01:08<06:53, 68.95s/it]Processing batches:  43%|████▎     | 3/7 [01:28<01:56, 29.09s/it]Processing batches:  14%|█▍        | 1/7 [01:25<08:34, 85.71s/it]Processing batches:  14%|█▍        | 1/7 [01:39<09:54, 99.16s/it]Processing batches:  57%|█████▋    | 4/7 [02:05<01:37, 32.53s/it]Processing batches:  29%|██▊       | 2/7 [02:00<05:01, 60.21s/it]Processing batches:  29%|██▊       | 2/7 [02:00<05:09, 61.85s/it]Processing batches:  29%|██▊       | 2/7 [02:05<05:09, 61.92s/it]Processing batches:  29%|██▊       | 2/7 [02:16<05:53, 70.73s/it]Processing batches:  29%|██▊       | 2/7 [02:24<05:36, 67.28s/it]Processing batches:  29%|██▊       | 2/7 [02:33<06:45, 81.10s/it]Processing batches:  71%|███████▏  | 5/7 [02:34<01:02, 31.23s/it]Processing batches:  29%|██▊       | 2/7 [02:33<06:16, 75.28s/it]Processing batches:  43%|████▎     | 3/7 [02:52<03:18, 49.53s/it]Processing batches:  86%|████████▌ | 6/7 [02:58<00:28, 28.80s/it]Processing batches:  43%|████▎     | 3/7 [02:56<03:47, 56.88s/it]Processing batches:  43%|████▎     | 3/7 [03:00<03:55, 58.87s/it]Processing batches:  43%|████▎     | 3/7 [03:02<04:03, 60.87s/it]Processing batches: 100%|██████████| 7/7 [03:10<00:00, 23.06s/it]Processing batches: 100%|██████████| 7/7 [03:10<00:00, 27.16s/it]
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Invalid control character at: line 2 column 12 (char 13)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 27 (char 26)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 19 (char 20)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting value: line 2 column 46 (char 47)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 1 column 24 (char 23)
+Error parsing JSON: Expecting value: line 1 column 27 (char 26)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 15 (char 41)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 36 (char 37)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 23 (char 24)
+Error parsing JSON: Invalid control character at: line 2 column 20 (char 21)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting property name enclosed in double quotes: line 3 column 28 (char 33)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 19 (char 61)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 65 (char 64)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 1 column 30 (char 29)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 3 column 12 (char 17)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 3 column 23 (char 28)
+Error parsing JSON: Invalid control character at: line 3 column 13 (char 18)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 11 (char 12)
+Error parsing JSON: can't multiply sequence by non-int of type 'float'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting value: line 4 column 1 (char 49)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 22 (char 21)
+Processing batches:  57%|█████▋    | 4/7 [03:20<02:02, 40.99s/it]Processing batches:  43%|████▎     | 3/7 [03:23<04:14, 63.62s/it]Processing batches:  43%|████▎     | 3/7 [03:34<04:47, 71.83s/it]Processing batches:  71%|███████▏  | 5/7 [03:43<01:09, 34.54s/it]Processing batches:  57%|█████▋    | 4/7 [03:42<02:37, 52.63s/it]Processing batches:  57%|█████▋    | 4/7 [03:59<02:56, 58.69s/it]Processing batches:  57%|█████▋    | 4/7 [04:08<02:48, 56.17s/it]Processing batches:  57%|█████▋    | 4/7 [04:12<03:12, 64.27s/it]Processing batches:  71%|███████▏  | 5/7 [04:22<01:35, 47.88s/it]Processing batches:  86%|████████▌ | 6/7 [04:26<00:37, 37.31s/it]Processing batches:  43%|████▎     | 3/7 [04:26<06:40, 100.21s/it]Processing batches: 100%|██████████| 7/7 [04:33<00:00, 27.57s/it]Processing batches: 100%|██████████| 7/7 [04:33<00:00, 39.10s/it]
+Error parsing JSON: Expecting ':' delimiter: line 2 column 27 (char 28)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 132 (char 131)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 41 (char 42)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 1 (char 204)
+Error parsing JSON: Expecting value: line 3 column 8 (char 44)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 1 column 35 (char 34)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 29 (char 30)
+Error parsing JSON: Expecting value: line 2 column 48 (char 49)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 4 (char 74)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 1 column 31 (char 30)
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 21 (char 74)
+Error parsing JSON: Expecting property name enclosed in double quotes: line 5 column 3 (char 65)
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 7 (char 8)
+Error parsing JSON: Invalid \escape: line 3 column 14 (char 21)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 22 (char 21)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 3 column 25 (char 30)
+Error parsing JSON: 'bbox_2d'
+Processing batches:  57%|█████▋    | 4/7 [04:37<03:25, 68.49s/it]Processing batches:  71%|███████▏  | 5/7 [04:59<01:58, 59.17s/it]Processing batches:  71%|███████▏  | 5/7 [04:57<01:47, 53.66s/it]Processing batches:  71%|███████▏  | 5/7 [05:08<02:02, 61.28s/it]Processing batches:  71%|███████▏  | 5/7 [05:20<01:58, 59.40s/it]Processing batches:  86%|████████▌ | 6/7 [05:30<00:54, 54.66s/it]Processing batches: 100%|██████████| 7/7 [05:35<00:00, 38.49s/it]Processing batches: 100%|██████████| 7/7 [05:35<00:00, 47.92s/it]
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 31 (char 94)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 24 (char 25)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 20 (char 19)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 97 (char 98)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 61 (char 62)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid control character at: line 1 column 14 (char 13)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 21 (char 22)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 121 (char 186)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting value: line 2 column 32 (char 33)
+Error parsing JSON: Invalid control character at: line 2 column 12 (char 13)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting value: line 2 column 28 (char 29)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 40 (char 149)
+Error parsing JSON: Expecting value: line 1 column 39 (char 38)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 59 (char 58)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 3 column 30 (char 35)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 65 (char 66)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 53 (char 54)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 15 (char 50)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 33 (char 34)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting value: line 1 column 50 (char 49)
+Processing batches:  86%|████████▌ | 6/7 [05:33<00:47, 47.58s/it]Processing batches: 100%|██████████| 7/7 [05:40<00:00, 34.43s/it]Processing batches: 100%|██████████| 7/7 [05:40<00:00, 48.65s/it]
+Error parsing JSON: Expecting ',' delimiter: line 3 column 33 (char 38)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 57 (char 58)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid control character at: line 2 column 23 (char 24)
+Error parsing JSON: Expecting ':' delimiter: line 3 column 74 (char 204)
+Error parsing JSON: Invalid control character at: line 16 column 13 (char 295)
+Error parsing JSON: Expecting value: line 2 column 35 (char 36)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 21 (char 54)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting value: line 1 column 72 (char 71)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 19 (char 20)
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Expecting ':' delimiter: line 3 column 12 (char 17)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 13 (char 122)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid control character at: line 2 column 36 (char 37)
+Error parsing JSON: Invalid control character at: line 2 column 12 (char 13)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 36 (char 37)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 18 (char 17)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 3 column 25 (char 31)
+Error parsing JSON: Expecting ':' delimiter: line 3 column 12 (char 17)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 31 (char 30)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting value: line 2 column 52 (char 53)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 1 column 32 (char 31)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 10 (char 9)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 21 (char 20)
+Error parsing JSON: Expecting value: line 2 column 158 (char 159)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 39 (char 38)
+Processing batches:  86%|████████▌ | 6/7 [05:52<00:57, 57.19s/it]Processing batches: 100%|██████████| 7/7 [06:02<00:00, 41.61s/it]Processing batches: 100%|██████████| 7/7 [06:02<00:00, 51.74s/it]
+Error parsing JSON: Expecting ',' delimiter: line 2 column 32 (char 33)
+Error parsing JSON: Expecting value: line 3 column 38 (char 116)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Invalid control character at: line 2 column 12 (char 13)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 10 (char 9)
+Error parsing JSON: Expecting value: line 2 column 32 (char 33)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 24 (char 62)
+Error parsing JSON: Expecting value: line 7 column 32 (char 118)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 27 (char 28)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Invalid control character at: line 2 column 16 (char 17)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 26 (char 68)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 13 (char 14)
+Error parsing JSON: Expecting value: line 1 column 126 (char 125)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 30 (char 31)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 64 (char 63)
+Error parsing JSON: Invalid \escape: line 2 column 10 (char 11)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: 'point_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ':' delimiter: line 3 column 16 (char 23)
+Error parsing JSON: Expecting value: line 3 column 29 (char 88)
+Error parsing JSON: Expecting ',' delimiter: line 7 column 28 (char 115)
+Error parsing JSON: Expecting value: line 3 column 24 (char 29)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 24 (char 25)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 3 column 22 (char 55)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 40 (char 39)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 16 (char 116)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 35 (char 36)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 114 (char 115)
+Processing batches:  86%|████████▌ | 6/7 [06:04<00:54, 54.14s/it]Processing batches:  86%|████████▌ | 6/7 [06:01<00:58, 58.62s/it]Processing batches:  57%|█████▋    | 4/7 [06:04<04:58, 99.36s/it] Processing batches: 100%|██████████| 7/7 [06:12<00:00, 38.86s/it]Processing batches: 100%|██████████| 7/7 [06:12<00:00, 53.19s/it]
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting value: line 3 column 5 (char 64)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 12 (char 13)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting value: line 1 column 51 (char 50)
+Error parsing JSON: Expecting value: line 2 column 104 (char 105)
+Error parsing JSON: Expecting ',' delimiter: line 4 column 2 (char 86)
+Error parsing JSON: 'point_2d'
+Error parsing JSON: Expecting ':' delimiter: line 1 column 13 (char 12)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 19 (char 20)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Invalid control character at: line 1 column 11 (char 10)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 186 (char 212)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Unterminated string starting at: line 1 column 3 (char 2)
+Error parsing JSON: Expecting value: line 1 column 361 (char 360)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Expecting value: line 1 column 83 (char 82)
+Error parsing JSON: Expecting ':' delimiter: line 3 column 12 (char 17)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 6 column 3 (char 119)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 46 (char 47)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 1 column 41 (char 40)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 65 (char 66)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 23 (char 24)
+Error parsing JSON: Expecting value: line 2 column 51 (char 52)
+Error parsing JSON: Expecting value: line 3 column 36 (char 108)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 35 (char 36)
+Error parsing JSON: Expecting ',' delimiter: line 2 column 28 (char 29)
+Processing batches: 100%|██████████| 7/7 [06:15<00:00, 43.88s/it]Processing batches: 100%|██████████| 7/7 [06:15<00:00, 53.58s/it]
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 33 (char 34)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 3 column 32 (char 73)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 11 (char 12)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: unsupported operand type(s) for *: 'dict' and 'float'
+Error parsing JSON: can't multiply sequence by non-int of type 'float'
+Error parsing JSON: Expecting ',' delimiter: line 1 column 77 (char 76)
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: Expecting value: line 2 column 61 (char 62)
+Error parsing JSON: Expecting ':' delimiter: line 3 column 16 (char 23)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 10 (char 9)
+Error parsing JSON: Expecting property name enclosed in double quotes: line 8 column 28 (char 536)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 14 (char 21)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ',' delimiter: line 3 column 48 (char 53)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 24 (char 25)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 3 column 16 (char 23)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 109 (char 108)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 58 (char 57)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 3 column 34 (char 106)
+Processing batches:  71%|███████▏  | 5/7 [06:51<02:41, 80.58s/it]Processing batches:  86%|████████▌ | 6/7 [07:51<01:13, 73.57s/it]Processing batches: 100%|██████████| 7/7 [07:57<00:00, 51.41s/it]Processing batches: 100%|██████████| 7/7 [07:57<00:00, 68.17s/it]
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid control character at: line 2 column 27 (char 28)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 34 (char 33)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 5 column 2 (char 149)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Invalid \escape: line 3 column 10 (char 15)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 47 (char 48)
+Error parsing JSON: Invalid control character at: line 1 column 17 (char 16)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 24 (char 25)
+Error parsing JSON: Invalid \escape: line 1 column 8 (char 7)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 58 (char 57)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid control character at: line 2 column 19 (char 20)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 1 column 54 (char 53)
+Error parsing JSON: Invalid control character at: line 2 column 14 (char 15)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 22 (char 23)
+Error parsing JSON: Expecting ',' delimiter: line 1 column 33 (char 32)
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: Expecting ':' delimiter: line 2 column 37 (char 38)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 1 column 12 (char 11)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ':' delimiter: line 2 column 54 (char 55)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 11 (char 12)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 3 column 14 (char 21)
+Error parsing JSON: 'point_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Expecting ',' delimiter: line 2 column 32 (char 33)
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+Error parsing JSON: Expecting ':' delimiter: line 1 column 38 (char 37)
+Error parsing JSON: 'bbox_2d'
+Error parsing JSON: Invalid \escape: line 2 column 9 (char 10)
+
+-----------------Think Text Statistics----------------------------------
+Number of think texts: 454
+Average think text length: 75.74 words
+Minimum think text length: 16 words
+Maximum think text length: 215 words
+------------------------------------------------------------------
+
+gIoU (average of per image IoU): 0.0085
+cIoU (total_intersection / total_union): 0.0175
+bbox_AP (average of per image bbox_AP): 0.0141

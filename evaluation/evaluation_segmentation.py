@@ -1,4 +1,5 @@
 import argparse
+import random
 import torch
 import json
 import numpy as np
@@ -38,7 +39,10 @@ def parse_args():
     parser.add_argument("--vord_threshold", type=float, default=0.5, help="VORD mask binarization threshold")
 
     # VGD options (token-level visual guidance decoding)
-    parser.add_argument("--vgd_alpha", type=float, default=0.0, help="VGD visual guidance alpha (0=disabled)")
+    parser.add_argument("--visual_alpha", type=float, default=0.0, help="Guidance alpha (0=disabled)")
+    parser.add_argument("--mode", type=str, default="VORD", help="Contrastive decoding mode, example VORD or VCD")
+    parser.add_argument("--noise_step", type=int, default=500, help="VORD diffusion noise timestep (0-999)")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
     return parser.parse_args()
 
 def compute_iou(mask1, mask2):
@@ -71,11 +75,22 @@ def compute_bbox_iou(bbox1, bbox2):
     
     return intersection / union
 
+def set_seed(seed: int):
+    """Set random seed for reproducibility across all libraries."""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    print(f"[Seed] All random states set to {seed}")
+
 def main():
     args = parse_args()
+    set_seed(args.seed)
     
     # Install appropriate sampling strategy (alpha=0 → regular _sample, alpha>0 → VGD)
-    evolve_guidance_sampling(visual_alpha=args.vgd_alpha)
+    # evolve_guidance_sampling(visual_alpha=args.visual_alpha, mode=args.mode)
     
     # Initialize model
     if args.model == "qwen2vl":
@@ -88,7 +103,8 @@ def main():
         model = VisionReasonerModel(reasoning_model_path=args.model_path, 
                                     task_router_model_path=args.task_router_model_path, 
                                     segmentation_model_path=args.segmentation_model_path,
-                                    vgd_alpha=args.vgd_alpha)
+                                    visual_alpha=args.visual_alpha, mode=args.mode,
+                                    noise_step=args.noise_step)
     elif args.model == "visurf":
         model = ViSurfModel(reasoning_model_path=args.model_path, 
                                     task_router_model_path=args.task_router_model_path, 

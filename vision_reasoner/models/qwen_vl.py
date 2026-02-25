@@ -33,14 +33,14 @@ class QwenVLModel(BaseVisionModel, DetectionModel, SegmentationModel, CountingMo
         if 'Qwen2.5' in model_path:
             self.model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
                 model_path,
-                torch_dtype=torch.float16,
+                dtype=torch.float16,
                 device_map="auto",
                 trust_remote_code=True
             )
         else:
             self.model = Qwen2VLForConditionalGeneration.from_pretrained(
                 model_path,
-                torch_dtype=torch.float16,
+                dtype=torch.float16,
                 device_map="auto",
                 trust_remote_code=True
             )

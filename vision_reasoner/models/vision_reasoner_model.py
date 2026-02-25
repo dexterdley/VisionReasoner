@@ -47,7 +47,10 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
                  generation_model_path=None,
                  depth_estimation_model_path=None,
                  pose_estimation_model_path=None,
-                 vgd_alpha=0.0):
+                 visual_alpha=0.0,
+                 mode=None,
+                 noise_step=500
+                 ):
         """
         Initialize the VisionReasoner model with reasoning and segmentation components
         
@@ -60,7 +63,7 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
         # Initialize reasoning model
         self.reasoning_model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
             reasoning_model_path,
-            torch_dtype=torch.bfloat16,
+            dtype=torch.bfloat16,
             attn_implementation="flash_attention_2",
             device_map="auto",
         )
@@ -111,10 +114,14 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
             self.generation_model = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", generation_model_path))
 
         # VGD token-level visual guidance decoding
-        self.vgd_alpha = vgd_alpha
-        if self.vgd_alpha > 0:
+        self.visual_alpha = visual_alpha
+        self.mode = mode
+        self.noise_step = noise_step
+        # Store noise_step directly on the model so _sample_vord can read it via self
+        self.reasoning_model.noise_step = noise_step
+        if self.visual_alpha > 0:
             from evaluation.vcd_sample import evolve_guidance_sampling
-            evolve_guidance_sampling(visual_alpha=self.vgd_alpha)
+            evolve_guidance_sampling(visual_alpha=self.visual_alpha, mode=self.mode)
 
     
     def extract_bbox_points_think(self, output_text, x_factor, y_factor):
@@ -293,10 +300,12 @@ class VisionReasonerModel(BaseVisionModel, DetectionModel, SegmentationModel, Co
         inputs = inputs.to("cuda")
         
         # Generate output
-        if self.vgd_alpha > 0 and not batch_mode:
+        if self.visual_alpha > 0 and not batch_mode:
+            # Update noise_step on model before each generate call
+            self.reasoning_model.noise_step = self.noise_step
             generated_ids = self.reasoning_model.generate(
                 **inputs, use_cache=True, max_new_tokens=2048, 
-                do_sample=True, visual_alpha=self.vgd_alpha
+                do_sample=True, visual_alpha=self.visual_alpha, mode=self.mode
             )
         else:
             generated_ids = self.reasoning_model.generate(**inputs, use_cache=True, max_new_tokens=2048, do_sample=True)

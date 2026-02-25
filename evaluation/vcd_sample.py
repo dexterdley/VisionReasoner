@@ -41,6 +41,21 @@ import os
 from transformers import GenerationConfig
 from transformers.generation.utils import GenerationMixin
 
+def add_diffusion_noise(image_tensor, noise_step):
+    """Add diffusion-schedule noise to a tensor at a given timestep (0-999)."""
+    num_steps = 1000
+    betas = torch.linspace(-6, 6, num_steps)
+    betas = torch.sigmoid(betas) * (0.5e-2 - 1e-5) + 1e-5
+    alphas = 1 - betas
+    alphas_prod = torch.cumprod(alphas, dim=0)
+    alphas_bar_sqrt = torch.sqrt(alphas_prod)
+    one_minus_alphas_bar_sqrt = torch.sqrt(1 - alphas_prod)
+
+    noise = torch.randn_like(image_tensor)
+    alphas_t = alphas_bar_sqrt[noise_step]
+    alphas_1_m_t = one_minus_alphas_bar_sqrt[noise_step]
+    return alphas_t * image_tensor + alphas_1_m_t * noise
+
 class VisualZeroHook:
     def __init__(self, start_idx, end_idx):
         self.start = start_idx
@@ -153,14 +168,28 @@ def _sample_vord(
         if "past_key_values" in model_kwargs and model_kwargs["past_key_values"] is not None:
             model_kwargs_noisy["past_key_values"] = copy.deepcopy(model_kwargs["past_key_values"])
 
-        noise_scale = getattr(generation_config, 'noise_scale', 0.1)
+        noise_step = int(getattr(self, 'noise_step', model_kwargs.get('noise_step', 500)))
+        margin = torch.tensor(0.0, device=input_ids.device)  # default if no pixel values
         for pixel_key in ["pixel_values", "pixel_values_videos"]:
             if pixel_key in model_kwargs_noisy and model_kwargs_noisy[pixel_key] is not None:
-                p_vals = model_kwargs_noisy[pixel_key].clone()
-                
-                # Assign a completely NEW tensor so we don't zero the clean branch
-                # Choose either zeros or noise based on your preference
-                model_kwargs_noisy[pixel_key] = torch.zeros_like(p_vals) 
+                p_clean = model_kwargs_clean[pixel_key]
+                p_noisy = add_diffusion_noise(p_clean, noise_step)
+                model_kwargs_noisy[pixel_key] = p_noisy
+
+                # Adaptive margin via ViT embeddings: m = (1/π) * arccos(cos_sim(f(v), f(v̂)))
+                grid_thw = model_kwargs_clean.get("image_grid_thw", model_kwargs_clean.get("video_grid_thw", None))
+                with torch.no_grad():
+                    f_clean = self.visual(p_clean, grid_thw=grid_thw)   # [N_tokens, D]
+                    f_noisy = self.visual(p_noisy, grid_thw=grid_thw)   # [N_tokens, D]
+                # Mean-pool over tokens to get a single feature vector per image
+                f_clean = f_clean.mean(dim=0 if f_clean.dim() == 2 else 1).flatten()
+                f_noisy = f_noisy.mean(dim=0 if f_noisy.dim() == 2 else 1).flatten()
+                cos_sim = F.cosine_similarity(
+                    f_clean.unsqueeze(0).float(),
+                    f_noisy.unsqueeze(0).float(),
+                    dim=-1
+                ).clamp(-1, 1)
+                margin = (1.0 / math.pi) * torch.acos(cos_sim)  # scalar in [0, 1]
         # ------------------------------------------------------------------
 
         while self._has_unfinished_sequences(this_peer_finished, synced_gpus, device=input_ids.device):
@@ -179,7 +208,9 @@ def _sample_vord(
             next_token_logits_cd = outputs_noisy.logits[:, -1, :].to(copy=True, dtype=torch.float32, device=input_ids.device)
 
             # VORD Logic:
-            ordinal_mask = (F.softmax(next_token_logits,-1) + 0.05).clamp(max=1) >= F.softmax(next_token_logits_cd,-1)
+            # Calculate Adaptive Plausibility Constraints and ordinal mask
+            cutoff = torch.log(torch.tensor(0.1)) + next_token_logits.max(dim=-1, keepdim=True).values
+            ordinal_mask = (F.softmax(next_token_logits,-1) + margin).clamp(max=1) >= F.softmax(next_token_logits_cd,-1)
 
             # Use the correctly contrasted logits
             next_token_scores = logits_processor(input_ids, next_token_logits)
@@ -194,7 +225,7 @@ def _sample_vord(
                 if output_scores:
                     scores += (next_token_scores,)
                 if output_logits:
-                    raw_logits += (next_token_logits_clean,)
+                    raw_logits += (next_token_logits,)
                 if output_attentions:
                     decoder_attentions += (
                         (outputs_clean.decoder_attentions,) if self.config.is_encoder_decoder else (outputs_clean.attentions,)
@@ -210,7 +241,14 @@ def _sample_vord(
 
             if do_sample:
                 probs = nn.functional.softmax(next_token_scores, dim=-1)
+                #probs[next_token_logits < cutoff] = 0
                 probs[~ordinal_mask] = 0
+                # Safety fallback: if mask zeroed everything, fall back to clean probs
+                prob_sums = probs.sum(dim=-1, keepdim=True)
+                all_zero = (prob_sums == 0)
+                if all_zero.any():
+                    fallback_probs = nn.functional.softmax(next_token_scores, dim=-1)
+                    probs = torch.where(all_zero, fallback_probs, probs)
                 next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
             else:
                 next_tokens = torch.argmax(next_token_scores, dim=-1)
@@ -509,95 +547,50 @@ def _sample_contrastive(
         else:
             is_prefill = True
 
-        config_name = type(self.model.config).__name__
+        visual_alpha = model_kwargs.get('visual_alpha', getattr(generation_config, 'visual_alpha', 0.0))
 
-        if "Gemma3" in config_name:
-            vs_id  = 255999
-            ve_id  = 256000
-            vstart = input_ids[0].tolist().index(vs_id)
-            vend = torch.where(input_ids[0] == ve_id)[0].max().item()
+        # ------------------------------------------------------------------
+        # Setup Double Pass Kwargs
+        # ------------------------------------------------------------------
+        model_kwargs_clean = model_kwargs.copy()
+        model_kwargs_noisy = model_kwargs.copy()
 
-        elif "Qwen3" in config_name and 'vgd_input_ids' in model_kwargs:
-            current_input_ids = model_kwargs['vgd_input_ids']
-            img_context = getattr(self, 'img_context_token_id', 151671)
-            matches = (current_input_ids == img_context).nonzero(as_tuple=True)
-            if len(matches) > 1:
-                seq_idx = matches[1]
-            else:
-                seq_idx = matches[0]
-            vstart = seq_idx.min().item()
-            vend = seq_idx.max().item()
+        # Prevent KV Cache collisions between passes if cache already exists
+        import copy
+        if "past_key_values" in model_kwargs and model_kwargs["past_key_values"] is not None:
+            model_kwargs_noisy["past_key_values"] = copy.deepcopy(model_kwargs["past_key_values"])
 
-        else:
-            vs_id  = self.model.config.vision_start_token_id
-            ve_id  = self.model.config.vision_end_token_id
-            vstart = input_ids[0].tolist().index(vs_id) + 1
-            vend = torch.where(input_ids[0] == ve_id)[0].max().item()
-
-        if 'vcd_alpha' in model_kwargs:
-            vcd_alpha = model_kwargs['vcd_alpha']
-        else:
-            vcd_alpha = getattr(generation_config, 'vcd_alpha', 0.0)
-
-        if 'icd_alpha' in model_kwargs:
-            icd_alpha = model_kwargs['icd_alpha']
-        else:
-            icd_alpha = getattr(generation_config, 'icd_alpha', 0.0)
-
-        if vcd_alpha > 0:
-            noise_type = "vis"
-            alpha = vcd_alpha
-        elif icd_alpha > 0:
-            noise_type = "text"
-            alpha = icd_alpha
-
-        # Expand inputs (Batch size 1 -> 2)
-        if input_ids.shape[0] == 1:
-            input_ids = input_ids.repeat(2, 1)
-            new_kwargs = {}
-            for k, v in model_kwargs.items():
-                if isinstance(v, torch.Tensor) and (v.shape[0] == 1 or k in ["pixel_values", "inputs_embeds", "image_grid_thw", "pixel_values_videos", "video_grid_thw"]):
-                    new_kwargs[k] = v.repeat(2, *([1] * (v.ndim - 1)))
-                else:
-                    new_kwargs[k] = v
-            model_kwargs = new_kwargs
-
-        # Register hook on transformer layers
-        hooks = []
-        layers = None
-        if hasattr(self, 'language_model'):
-             if hasattr(self.language_model, 'model'):
-                 layers = self.language_model.model.layers
-             elif hasattr(self.language_model, 'layers'):
-                 layers = self.language_model.layers
-        elif hasattr(self, 'model'):
-             if hasattr(self.model, 'layers'):
-                 layers = self.model.layers
-             elif hasattr(self.model, 'language_model'):
-                 layers = self.model.language_model.layers
-
-        if layers is not None:
-            # Hook all layers for Qwen models
-            if "Qwen" in config_name:
-                for i, layer in enumerate(layers):
-                    hook = VisualTextDistortionHook(vstart, vend, noise_type=noise_type, noise_scale=0.1)
-                    hooks.append(layer.register_forward_pre_hook(hook))
-            else:
-                hook = VisualTextDistortionHook(vstart, vend, noise_type=noise_type, noise_scale=0.1)
-                hooks.append(layers[0].register_forward_pre_hook(hook))
+        noise_step = int(getattr(self, 'noise_step', model_kwargs.get('noise_step', 500)))
+        margin = torch.tensor(0.0, device=input_ids.device)  # default if no pixel values
+        for pixel_key in ["pixel_values", "pixel_values_videos"]:
+            if pixel_key in model_kwargs_noisy and model_kwargs_noisy[pixel_key] is not None:
+                p_clean = model_kwargs_clean[pixel_key]
+                p_noisy = add_diffusion_noise(p_clean, noise_step)
+                model_kwargs_noisy[pixel_key] = p_noisy
+        # ------------------------------------------------------------------
 
         while self._has_unfinished_sequences(this_peer_finished, synced_gpus, device=input_ids.device):
             forward_call = self if is_prefill else model_forward
-            model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
-
-            outputs = forward_call(**model_inputs, return_dict=True)
             
-            next_token_logits_clean = outputs.logits[:, -1, :][0].unsqueeze(0).to(copy=True, dtype=torch.float32, device=input_ids.device)
-            next_token_logits_distorted = outputs.logits[:, -1, :][1].unsqueeze(0).to(copy=True, dtype=torch.float32, device=input_ids.device)
+            # Pass 1: Clean
+            model_inputs_clean = self.prepare_inputs_for_generation(input_ids, **model_kwargs_clean)
+            outputs_clean = forward_call(**model_inputs_clean, return_dict=True)
+            
+            # Pass 2: Noisy
+            model_inputs_noisy = self.prepare_inputs_for_generation(input_ids, **model_kwargs_noisy)
+            outputs_noisy = forward_call(**model_inputs_noisy, return_dict=True)
 
-            # CD Formula: Logits = (1 + alpha) * Logits_Clean - alpha * Logits_Distorted
-            cd_logits = (1 + alpha) * next_token_logits_clean - alpha * next_token_logits_distorted
-            next_token_scores = logits_processor(input_ids[:1], cd_logits)
+            # Extract logits 
+            next_token_logits = outputs_clean.logits[:, -1, :].to(copy=True, dtype=torch.float32, device=input_ids.device)
+            next_token_logits_cd = outputs_noisy.logits[:, -1, :].to(copy=True, dtype=torch.float32, device=input_ids.device)
+
+            # VCD Logic:
+            # Calculate Adaptive Plausibility Constraints and ordinal mask
+            cutoff = torch.log(torch.tensor(0.1)) + next_token_logits.max(dim=-1, keepdim=True).values
+
+            vcd_logits = 2 * next_token_logits - next_token_logits_cd
+            # Use the correctly contrasted logits
+            next_token_scores = logits_processor(input_ids, vcd_logits)
 
             if is_prefill:
                 is_prefill = False
@@ -609,18 +602,18 @@ def _sample_contrastive(
                 if output_scores:
                     scores += (next_token_scores,)
                 if output_logits:
-                    raw_logits += (next_token_logits_clean,)
+                    raw_logits += (next_token_logits,)
                 if output_attentions:
                     decoder_attentions += (
-                        (outputs.decoder_attentions,) if self.config.is_encoder_decoder else (outputs.attentions,)
+                        (outputs_clean.decoder_attentions,) if self.config.is_encoder_decoder else (outputs_clean.attentions,)
                     )
                     if self.config.is_encoder_decoder:
-                        cross_attentions += (outputs.cross_attentions,)
+                        cross_attentions += (outputs_clean.cross_attentions,)
                 if output_hidden_states:
                     decoder_hidden_states += (
-                        (outputs.decoder_hidden_states,)
+                        (outputs_clean.decoder_hidden_states,)
                         if self.config.is_encoder_decoder
-                        else (outputs.hidden_states,)
+                        else (outputs_clean.hidden_states,)
                     )
 
             if do_sample:
@@ -639,18 +632,24 @@ def _sample_contrastive(
             if streamer is not None:
                 streamer.put(next_tokens.cpu())
 
-            model_kwargs = self._update_model_kwargs_for_generation(
-                outputs,
-                model_kwargs,
+            # Update KV Cache independently for BOTH passes
+            model_kwargs_clean = self._update_model_kwargs_for_generation(
+                outputs_clean,
+                model_kwargs_clean,
+                is_encoder_decoder=self.config.is_encoder_decoder,
+            )
+            model_kwargs_noisy = self._update_model_kwargs_for_generation(
+                outputs_noisy,
+                model_kwargs_noisy,
                 is_encoder_decoder=self.config.is_encoder_decoder,
             )
 
             unfinished_sequences = unfinished_sequences & ~stopping_criteria(input_ids, scores)
             this_peer_finished = unfinished_sequences.max() == 0
             cur_len += 1
-            del outputs
-        
-        for hook in hooks: hook.remove()
+            
+            del outputs_clean
+            del outputs_noisy
 
         if streamer is not None:
             streamer.end()
@@ -666,7 +665,7 @@ def _sample_contrastive(
                     decoder_attentions=decoder_attentions,
                     cross_attentions=cross_attentions,
                     decoder_hidden_states=decoder_hidden_states,
-                    past_key_values=model_kwargs.get("past_key_values"),
+                    past_key_values=model_kwargs_clean.get("past_key_values"),
                 )
             else:
                 return GenerateDecoderOnlyOutput(
@@ -675,7 +674,7 @@ def _sample_contrastive(
                     logits=raw_logits,
                     attentions=decoder_attentions,
                     hidden_states=decoder_hidden_states,
-                    past_key_values=model_kwargs.get("past_key_values"),
+                    past_key_values=model_kwargs_clean.get("past_key_values"),
                 )
         else:
             return input_ids
@@ -821,7 +820,7 @@ _original_validate_model_kwargs = GenerationMixin._validate_model_kwargs
 
 def _validate_model_kwargs_vgd(self, model_kwargs: Dict[str, Any]):
     ignore_keys = {
-        'visual_alpha','vcd_alpha', 'icd_alpha', 'verbose', 'reuse', 'use_custom_prompt',
+        'visual_alpha', 'mode', 'vcd_alpha', 'icd_alpha', 'verbose', 'reuse', 'use_custom_prompt',
         'use_vllm', 'presence_penalty', 'repetition_penalty', 'top_p', 'top_k',
         'vgd_input_ids'
     }
@@ -838,7 +837,7 @@ def _validate_model_kwargs_vgd(self, model_kwargs: Dict[str, Any]):
         return output
     return model_kwargs
 
-def evolve_guidance_sampling(visual_alpha=0.0, vcd_alpha=0.0, icd_alpha=0.0):
+def evolve_guidance_sampling(visual_alpha=0.0, mode="VORD"):
     """
     Monkey-patch HF's _sample method to use the appropriate decoding strategy.
     
@@ -847,17 +846,17 @@ def evolve_guidance_sampling(visual_alpha=0.0, vcd_alpha=0.0, icd_alpha=0.0):
     """
     transformers.generation.utils.GenerationMixin._validate_model_kwargs = _validate_model_kwargs_vgd
     
-    if visual_alpha == -1:
+    if mode == "VORD":
         print(f"Using VORD Sampling | Alpha: {visual_alpha}")
         transformers.generation.utils.GenerationMixin._sample = _sample_vord
-    elif visual_alpha > 0:
+    elif mode == "VGD":
         print(f"Using VGD Sampling | Alpha: {visual_alpha}")
         transformers.generation.utils.GenerationMixin._sample = _sample_vgd
-    elif vcd_alpha > 0:
-        print(f"Using VCD Sampling | Alpha: {vcd_alpha}")
+    elif mode == "VCD":
+        print(f"Using VCD Sampling  | Alpha: {visual_alpha}")
         transformers.generation.utils.GenerationMixin._sample = _sample_contrastive
-    elif icd_alpha > 0:
-        print(f"Using ICD Sampling | Alpha: {icd_alpha}")
+    elif mode == "ICD":
+        print(f"Using ICD Sampling  | Alpha: {visual_alpha}")
         transformers.generation.utils.GenerationMixin._sample = _sample_contrastive
     else:
         print("Using Regular Sampling")
