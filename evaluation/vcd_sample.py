@@ -241,7 +241,6 @@ def _sample_vord(
 
             if do_sample:
                 probs = nn.functional.softmax(next_token_scores, dim=-1)
-                #probs[next_token_logits < cutoff] = 0
                 probs[~ordinal_mask] = 0
                 # Safety fallback: if mask zeroed everything, fall back to clean probs
                 prob_sums = probs.sum(dim=-1, keepdim=True)

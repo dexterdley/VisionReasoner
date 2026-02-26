@@ -1,267 +1,43 @@
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/__init__.py", line 396, in <module>
-    sys.modules[__name__] = _LazyModule(__name__, _file, define_import_structure(_file), module_spec=__spec__)
-                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2867, in define_import_structure
-    import_structure = create_import_structure_from_path(module_path)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2580, in create_import_structure_from_path
-    import_structure[f] = create_import_structure_from_path(os.path.join(module_path, f))
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2703, in create_import_structure_from_path
-    for _all_object in fetch__all__(file_content):
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2473, in fetch__all__
-    def fetch__all__(file_content) -> list[str]:
-    
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 13, in <module>
-    from vcd_sample import evolve_guidance_sampling
-  File "/home/dexter/VisionReasoner/evaluation/vcd_sample.py", line 14, in <module>
-    from transformers.generation.logits_process import (
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/__init__.py", line 958, in <module>
-    import_structure = define_import_structure(Path(__file__).parent / "models", prefix="models")
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2868, in define_import_structure
-    spread_dict = spread_import_structure(import_structure)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2830, in spread_import_structure
-    ordered_import_structure = propagate_frozenset(ordered_import_structure)
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2809, in propagate_frozenset
-    frozenset_first_import_structure[_key] = propagate_frozenset(_value)
-                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2771, in propagate_frozenset
-    elif any(isinstance(v, frozenset) for v in _value):
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2771, in <genexpr>
-    elif any(isinstance(v, frozenset) for v in _value):
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 34, in <module>
-    from ...activations import ACT2FN
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 19, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/flash_attention.py", line 11, in <module>
-    _use_top_left_mask = flash_attn_supports_top_left_mask()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 38, in flash_attn_supports_top_left_mask
-    if is_flash_attn_2_available():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1199, in is_flash_attn_2_available
-    if not (torch.cuda.is_available() or is_torch_mlu_available()):
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/torch/cuda/__init__.py", line 182, in is_available
-    return torch._C._cuda_getDeviceCount() > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 34, in <module>
-    from ...activations import ACT2FN
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 19, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/flash_attention.py", line 11, in <module>
-    _use_top_left_mask = flash_attn_supports_top_left_mask()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 38, in flash_attn_supports_top_left_mask
-    if is_flash_attn_2_available():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1199, in is_flash_attn_2_available
-    if not (torch.cuda.is_available() or is_torch_mlu_available()):
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/torch/cuda/__init__.py", line 182, in is_available
-    return torch._C._cuda_getDeviceCount() > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 34, in <module>
-    from ...activations import ACT2FN
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 19, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/flash_attention.py", line 11, in <module>
-    _use_top_left_mask = flash_attn_supports_top_left_mask()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 38, in flash_attn_supports_top_left_mask
-    if is_flash_attn_2_available():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1199, in is_flash_attn_2_available
-    if not (torch.cuda.is_available() or is_torch_mlu_available()):
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/torch/cuda/__init__.py", line 182, in is_available
-    return torch._C._cuda_getDeviceCount() > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 34, in <module>
-    from ...activations import ACT2FN
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 19, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/flash_attention.py", line 11, in <module>
-    _use_top_left_mask = flash_attn_supports_top_left_mask()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 38, in flash_attn_supports_top_left_mask
-    if is_flash_attn_2_available():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1199, in is_flash_attn_2_available
-    if not (torch.cuda.is_available() or is_torch_mlu_available()):
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/torch/cuda/__init__.py", line 182, in is_available
-    return torch._C._cuda_getDeviceCount() > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 34, in <module>
-    from ...activations import ACT2FN
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 19, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/flash_attention.py", line 11, in <module>
-    _use_top_left_mask = flash_attn_supports_top_left_mask()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 38, in flash_attn_supports_top_left_mask
-    if is_flash_attn_2_available():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1199, in is_flash_attn_2_available
-    if not (torch.cuda.is_available() or is_torch_mlu_available()):
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/torch/cuda/__init__.py", line 182, in is_available
-    return torch._C._cuda_getDeviceCount() > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/home/dexter/VisionReasoner/evaluation/evaluation_segmentation.py", line 17, in <module>
-    from vision_reasoner.models.vision_reasoner_model import VisionReasonerModel
-  File "/home/dexter/VisionReasoner/vision_reasoner/models/vision_reasoner_model.py", line 6, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2317, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2345, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 34, in <module>
-    from ...activations import ACT2FN
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/hub_kernels.py", line 19, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/integrations/flash_attention.py", line 11, in <module>
-    _use_top_left_mask = flash_attn_supports_top_left_mask()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 38, in flash_attn_supports_top_left_mask
-    if is_flash_attn_2_available():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1199, in is_flash_attn_2_available
-    if not (torch.cuda.is_available() or is_torch_mlu_available()):
-            ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dexter/anaconda3/envs/VisionReasoner/lib/python3.12/site-packages/torch/cuda/__init__.py", line 182, in is_available
-    return torch._C._cuda_getDeviceCount() > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
-evaluation/eval_segmentation.sh: line 51: kill: (-2433603) - No such process
+[Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.49it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.43it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.20it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.47it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.09it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.38it/s][Seed] All random states set to 42
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.03it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.03it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.16it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:04,  1.12s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.40it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.34it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.07it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.12it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.35it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:04,  1.15s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.07s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.82it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.61it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.34it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.11it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.84it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.59it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.17it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.04it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.02it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.01s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.60it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.37it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:03<00:01,  1.02it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.64it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.37it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.10it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.08it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.07it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.48it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.26it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.47it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.25it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.50it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.23it/s]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.29it/s]
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Using VORD Sampling | Alpha: 1.5
+Processing batches:   0%|          | 0/7 [00:00<?, ?it/s]Processing batches:  14%|█▍        | 1/7 [00:36<03:38, 36.40s/it]Processing batches:  29%|██▊       | 2/7 [01:20<03:25, 41.02s/it]Processing batches:  43%|████▎     | 3/7 [01:57<02:36, 39.04s/it]Processing batches:  14%|█▍        | 1/7 [02:25<14:30, 145.13s/it]Processing batches:  57%|█████▋    | 4/7 [02:31<01:51, 37.20s/it]Processing batches:  14%|█▍        | 1/7 [02:40<16:00, 160.05s/it]Processing batches:  14%|█▍        | 1/7 [02:46<16:40, 166.81s/it]Processing batches:  71%|███████▏  | 5/7 [03:00<01:08, 34.01s/it]Processing batches:  14%|█▍        | 1/7 [03:06<18:39, 186.62s/it]Processing batches:  14%|█▍        | 1/7 [03:15<19:30, 195.01s/it]Processing batches:  86%|████████▌ | 6/7 [03:29<00:32, 32.29s/it]Processing batches:  14%|█▍        | 1/7 [03:29<20:56, 209.45s/it]Processing batches:  29%|██▊       | 2/7 [03:39<08:00, 96.06s/it] Processing batches: 100%|██████████| 7/7 [03:35<00:00, 23.70s/it]Processing batches: 100%|██████████| 7/7 [03:35<00:00, 30.72s/it]
+Processing batches:  14%|█▍        | 1/7 [03:32<21:12, 212.16s/it]Processing batches:  43%|████▎     | 3/7 [04:05<04:16, 64.19s/it]Processing batches:  57%|█████▋    | 4/7 [04:46<02:45, 55.11s/it]Processing batches:  29%|██▊       | 2/7 [05:05<12:30, 150.08s/it]Processing batches:  71%|███████▏  | 5/7 [05:29<01:41, 50.61s/it]Processing batches:  29%|██▊       | 2/7 [05:40<14:32, 174.41s/it]Processing batches:  86%|████████▌ | 6/7 [06:08<00:46, 46.54s/it]Processing batches: 100%|██████████| 7/7 [06:10<00:00, 32.20s/it]Processing batches: 100%|██████████| 7/7 [06:10<00:00, 52.95s/it]
+Processing batches:  29%|██▊       | 2/7 [06:34<16:16, 195.22s/it]Processing batches:  29%|██▊       | 2/7 [06:41<17:20, 208.17s/it]Processing batches:  29%|██▊       | 2/7 [07:05<17:44, 212.89s/it]Processing batches:  29%|██▊       | 2/7 [07:20<18:43, 224.74s/it]Processing batches:  43%|████▎     | 3/7 [08:03<10:40, 160.22s/it]Processing batches:  43%|████▎     | 3/7 [08:12<11:07, 166.95s/it]Processing batches:  43%|████▎     | 3/7 [08:52<11:16, 169.08s/it]Processing batches:  43%|████▎     | 3/7 [10:07<13:12, 198.16s/it]Processing batches:  43%|████▎     | 3/7 [10:09<13:52, 208.07s/it]Processing batches:  57%|█████▋    | 4/7 [10:43<08:01, 160.60s/it]Processing batches:  43%|████▎     | 3/7 [10:41<14:16, 214.15s/it]Processing batches:  57%|█████▋    | 4/7 [10:53<08:12, 164.15s/it]Processing batches:  57%|█████▋    | 4/7 [11:27<08:10, 163.41s/it]Processing batches:  71%|███████▏  | 5/7 [13:03<05:03, 151.91s/it]Processing batches:  71%|███████▏  | 5/7 [13:10<05:11, 155.81s/it]Processing batches:  57%|█████▋    | 4/7 [13:09<09:50, 196.85s/it]Processing batches:  71%|███████▏  | 5/7 [13:11<04:44, 142.07s/it]Processing batches:  57%|█████▋    | 4/7 [13:13<09:41, 193.71s/it]Processing batches:  86%|████████▌ | 6/7 [14:24<01:58, 118.40s/it]Processing batches: 100%|██████████| 7/7 [14:43<00:00, 86.16s/it] Processing batches: 100%|██████████| 7/7 [14:43<00:00, 126.27s/it]
+Processing batches:  57%|█████▋    | 4/7 [14:53<11:27, 229.18s/it]Processing batches:  86%|████████▌ | 6/7 [15:06<02:22, 142.01s/it]Processing batches: 100%|██████████| 7/7 [15:12<00:00, 97.69s/it] Processing batches: 100%|██████████| 7/7 [15:12<00:00, 130.43s/it]
+Processing batches:  86%|████████▌ | 6/7 [15:52<02:37, 157.94s/it]Processing batches: 100%|██████████| 7/7 [15:56<00:00, 107.68s/it]Processing batches: 100%|██████████| 7/7 [15:56<00:00, 136.67s/it]
+Processing batches:  71%|███████▏  | 5/7 [16:35<06:32, 196.46s/it]Processing batches:  71%|███████▏  | 5/7 [16:37<06:41, 200.92s/it]Processing batches:  71%|███████▏  | 5/7 [18:29<07:28, 224.33s/it]Processing batches:  86%|████████▌ | 6/7 [19:31<03:09, 189.54s/it]Processing batches: 100%|██████████| 7/7 [19:46<00:00, 132.34s/it]Processing batches: 100%|██████████| 7/7 [19:46<00:00, 169.43s/it]
+Processing batches:  86%|████████▌ | 6/7 [20:31<03:32, 212.10s/it]Processing batches: 100%|██████████| 7/7 [20:41<00:00, 146.17s/it]Processing batches: 100%|██████████| 7/7 [20:41<00:00, 177.41s/it]
+Processing batches:  86%|████████▌ | 6/7 [21:22<03:27, 207.01s/it]Processing batches: 100%|██████████| 7/7 [21:43<00:00, 146.31s/it]Processing batches: 100%|██████████| 7/7 [21:43<00:00, 186.27s/it]
+gIoU (average of per image IoU): 0.5241
+cIoU (total_intersection / total_union): 0.4099
+bbox_AP (average of per image bbox_AP): 0.5725

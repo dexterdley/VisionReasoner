@@ -26,7 +26,7 @@ def main():
     parser.add_argument("--visual_alpha", type=float, default=1.5)
     parser.add_argument("--noise_step", type=int, default=500)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--output_path", type=str, default="result_visualization.png", help="Path to save the output visualization")
+    parser.add_argument("--output_path", type=str, default="./results/result_visualization.png", help="Path to save the output visualization")
     args = parser.parse_args()
 
     # Seed
